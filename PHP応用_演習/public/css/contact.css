@@ -1,0 +1,66 @@
+h1 {
+  text-align: center;
+}
+
+.name {
+  width: 35px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kana {
+  width: 64px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tel {
+  width: 64px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mail {
+  width: 110px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+textarea   {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 100px;
+}
+
+table tr th {
+  text-align: center;
+  color: white;
+  border: solid 1px black;
+  background-color: black;
+}
+
+table td {
+  text-align: center;
+  border: solid 1px black;
+}
+
+.date_delete {
+  cursor: pointer;
+}
