@@ -1,6 +1,6 @@
 <?php
   require_once('../Models/CRUD.php');
-  $ContactRead = new Contact();
+  $ContactRead = new CRUD();
   $result = $ContactRead -> Read();
 ?>
 
@@ -55,7 +55,7 @@
 <script>
   <?php
     require_once('../Models/CRUD.php');
-    $ContactDelete = new Contact();
+    $ContactDelete = new CRUD();
     $stt = $ContactDelete -> Delete();
   ?>
 

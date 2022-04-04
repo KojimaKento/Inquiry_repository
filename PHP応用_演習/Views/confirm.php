@@ -49,7 +49,7 @@
 <?php
   require_once('../Models/CRUD.php');
 
-  $ContactInsert = new Contact ();
+  $ContactInsert = new CRUD ();
   $ContactInsert->name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
   $ContactInsert->kana = htmlspecialchars($_POST['kana'], ENT_QUOTES, 'UTF-8');
   $ContactInsert->tel = htmlspecialchars($_POST['tel'], ENT_QUOTES, 'UTF-8');

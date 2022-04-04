@@ -1,5 +1,5 @@
 <?php
-  class Contact {
+  class CRUD {
     public $name;
     public $kana;
     public $tel;

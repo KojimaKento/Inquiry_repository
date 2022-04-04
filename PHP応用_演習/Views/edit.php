@@ -1,6 +1,6 @@
 <?php
   require_once('../Models/CRUD.php');
-  $ContactEdit = new Contact();
+  $ContactEdit = new CRUD();
   $result = $ContactEdit -> GetEditId ();
 ?>
 
