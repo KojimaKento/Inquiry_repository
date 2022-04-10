@@ -23,7 +23,7 @@
       <td><?php echo $row['kana'] ?></td>
       <td><?php echo $row['tel'] ?></td>
       <td><?php echo $row['email'] ?></td>
-      <td><?php echo $row['text'] ?></td>
+      <td><?php echo $row['body'] ?></td>
       <td>
         <?php
           echo "<a href=./edit.php?id=" . $row["id"] . ">編集</a>\n";

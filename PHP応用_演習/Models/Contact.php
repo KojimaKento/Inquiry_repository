@@ -1,4 +1,6 @@
 <?php
+  require_once(ROOT_PATH. './Models/Db.php');
+
   class Contact {
     public $name;
     public $kana;
@@ -7,15 +9,12 @@
     public $text;
 
     public function Create () {
-      $dsn = 'mysql:charset=UTF8;dbname=casteria;host=localhost';
-      $user = 'root';
-      $password = 'root';
-
-      $sql = "INSERT INTO contacts (name, kana, tel, email, text) 
-      VALUES (:name, :kana, :tel, :email, :text)";
-
       try {
-        $pdo = new PDO($dsn, $user, $password);
+        $PDO = new Db ();
+        $pdo = $PDO -> PDO();
+
+        $sql = "INSERT INTO contacts (name, kana, tel, email, body) 
+        VALUES (:name, :kana, :tel, :email, :text)";
 
         $pdo->beginTransaction();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -44,10 +43,8 @@
     public function Read () {
       try {
         // データベースへの接続
-        $dsn = 'mysql:charset=UTF8;dbname=casteria;host=localhost';
-        $user = 'root';
-        $password = 'root';
-        $pdo = new PDO($dsn, $user, $password);
+        $PDO = new Db ();
+        $pdo = $PDO -> PDO();
 
         // テーブルからのデータの取得
         $stt = $pdo->prepare('SELECT * FROM contacts');
@@ -63,11 +60,9 @@
     public function GetEditId () {
       try {
         // データベース接続
-        $dsn = 'mysql:charset=UTF8;dbname=casteria;host=localhost';
-        $user = 'root';
-        $password = 'root';
-        $pdo = new PDO($dsn, $user, $password);
-    
+        $PDO = new Db ();
+        $pdo = $PDO -> PDO();
+
         // データから編集するidを持ってくる
         $stmt = $pdo->prepare('SELECT * FROM contacts WHERE id = :id');
         $stmt->execute(array(':id' => $_GET["id"]));
@@ -87,13 +82,11 @@
         $tel = $_POST['tel'];
         $email = $_POST['email'];
         $body = $_POST['body'];
+
+        $PDO = new Db ();
+        $pdo = $PDO -> PDO();
     
-        $dsn = 'mysql:charset=UTF8;dbname=casteria;host=localhost';
-        $user = 'root';
-        $password = 'root';
-        $pdo = new PDO($dsn, $user, $password);
-    
-        $stmt = $pdo->prepare('UPDATE contacts SET name = :name, kana = :kana , tel = :tel, email = :email, text = :body WHERE id = :id');
+        $stmt = $pdo->prepare('UPDATE contacts SET name = :name, kana = :kana , tel = :tel, email = :email, body = :body WHERE id = :id');
     
         $stmt->bindParam( ':id', $id, PDO::PARAM_INT );
         $stmt->bindParam( ':name', $name, PDO::PARAM_STR );
@@ -114,10 +107,8 @@
     public function Delete() {
       try {
         // データベースへの接続
-        $dsn = 'mysql:charset=UTF8;dbname=casteria;host=localhost';
-        $user = 'root';
-        $password = 'root';
-        $pdo = new PDO($dsn, $user, $password);
+        $PDO = new Db ();
+        $pdo = $PDO -> PDO();
         
         // データの削除
         $stt = $pdo->prepare("DELETE FROM contacts WHERE id = :id");

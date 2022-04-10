@@ -34,7 +34,7 @@
     <input id="mail" type="text" name='email' value="<?php echo htmlspecialchars($EditData['email'], ENT_QUOTES, 'UTF-8'); ?>">
 
     <div class="content">お問合せ内容</div>
-    <textarea id="content" name='body'><?php if (!empty($EditData['text'])) echo htmlspecialchars($EditData['text'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+    <textarea id="content" name='body'><?php if (!empty($EditData['body'])) echo htmlspecialchars($EditData['body'], ENT_QUOTES, 'UTF-8'); ?></textarea>
 
     <input id="submit" type="submit" name="btn_confirm" value="入力画面へ">
     <input type="hidden" name="edit_id" value="<?=$EditData['id']?>">
