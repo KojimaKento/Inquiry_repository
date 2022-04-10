@@ -11,7 +11,7 @@
   <body>
     <h1>編集エラー確認画面</h1>
       <?php
-        require_once '../Controllers/validate.php';
+        require_once '../Controllers/ContactController.php';
       ?>
 
       <form action="EditValidate.php" method="POST" name="contact">
@@ -50,14 +50,12 @@
         <input id="mail" type="text" name='email' value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'); ?>">
 
         <div class="content">お問合せ内容</div>
-        <?php if (!empty($_POST['body'])): ?>
-          <?php if (in_array('bodyエラー', $errors)): ?>
-            <p style="color: #ff2e5a; text-align: center; font-size: 15px;">
-              <?php echo ' * お問合せ内容を記入してください ' ?>
-            </p>
-          <?php endif ?>
-          <textarea id="content" name='body'><?php echo nl2br(htmlspecialchars($_POST["body"], ENT_QUOTES, 'UTF-8')); ?></textarea>
+        <?php if (in_array('bodyエラー', $errors)): ?>
+          <p style="color: #ff2e5a; text-align: center; font-size: 15px;">
+            <?php echo ' * お問合せ内容を記入してください ' ?>
+          </p>
         <?php endif ?>
+        <textarea id="content" name='body'><?php echo nl2br(htmlspecialchars($_POST["body"], ENT_QUOTES, 'UTF-8')); ?></textarea>
 
 
         <input id="submit" type="submit" name="btn_confirm" value="確認画面へ">

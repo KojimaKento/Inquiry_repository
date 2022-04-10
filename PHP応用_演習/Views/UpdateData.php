@@ -1,5 +1,5 @@
 <?php
-  require_once('../Models/CRUD.php');
-  $ContactUpdata = new CRUD();
-  $ContactUpdata -> Update();
+  require_once('../Controllers/ContactController.php');
+  $ContactUpdata = new ContactController();
+  $UpdateData = $ContactUpdata -> UpdateData();
 ?>

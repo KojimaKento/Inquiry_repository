@@ -10,7 +10,7 @@
   <body>
     <h1>エラー確認画面</h1>
       <?php
-        require_once '../Controllers/validate.php';
+        require_once '../Controllers/ContactController.php';
       ?>
 
       <form action="ContactValidate.php" method="POST" name="contact">
@@ -49,14 +49,12 @@
 
 
         <div class="content">お問合せ内容</div>
-        <?php if (!empty($_POST['text'])): ?>
-          <?php if (in_array('textエラー', $errors)): ?>
-            <p style="color: #ff2e5a; text-align: center; font-size: 15px;">
-              <?php echo ' * お問合せ内容を記入してください ' ?>
-            </p>
-          <?php endif ?>
-          <textarea id="content" name='text'><?php echo nl2br(htmlspecialchars($_POST["text"], ENT_QUOTES, 'UTF-8')); ?></textarea>
+        <?php if (in_array('bodyエラー', $errors)): ?>
+          <p style="color: #ff2e5a; text-align: center; font-size: 15px;">
+            <?php echo ' * お問合せ内容を記入してください ' ?>
+          </p>
         <?php endif ?>
+        <textarea id="content" name='text'><?php echo nl2br(htmlspecialchars($_POST["text"], ENT_QUOTES, 'UTF-8')); ?></textarea>
 
         <input id="submit" type="submit" name="btn_confirm" value="確認画面へ">
       </form>

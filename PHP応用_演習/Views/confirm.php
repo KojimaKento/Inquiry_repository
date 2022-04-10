@@ -47,13 +47,7 @@
 
 
 <?php
-  require_once('../Models/CRUD.php');
-
-  $ContactInsert = new CRUD ();
-  $ContactInsert->name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-  $ContactInsert->kana = htmlspecialchars($_POST['kana'], ENT_QUOTES, 'UTF-8');
-  $ContactInsert->tel = htmlspecialchars($_POST['tel'], ENT_QUOTES, 'UTF-8');
-  $ContactInsert->email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
-  $ContactInsert->text = htmlspecialchars($_POST['text'], ENT_QUOTES, 'UTF-8');
-  $ContactInsert->Create();
+  require_once('../Controllers/ContactController.php');
+  $ContactCreate = new ContactController();
+  $CreateData = $ContactCreate -> CreateData();
 ?>

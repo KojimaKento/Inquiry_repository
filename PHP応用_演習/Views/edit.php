@@ -1,7 +1,7 @@
 <?php
-  require_once('../Models/CRUD.php');
-  $ContactEdit = new CRUD();
-  $result = $ContactEdit -> GetEditId ();
+  require_once('../Controllers/ContactController.php');
+  $ContactEdit = new ContactController();
+  $EditData = $ContactEdit -> DataEditId ();
 ?>
 
 <!DOCTYPE html>
@@ -19,25 +19,25 @@
     <h1>更新画面</h1>
 
     <form action="EditValidate.php" method="POST" name="contact">
-    <input type="hidden" name="id" value="<?php if (!empty($result['id'])) echo(htmlspecialchars($result['id'], ENT_QUOTES, 'UTF-8'));?>">
+    <input type="hidden" name="id" value="<?php if (!empty($EditData['id'])) echo(htmlspecialchars($EditData['id'], ENT_QUOTES, 'UTF-8'));?>">
 
     <div class="name">氏名</div>
-    <input id="name" type="text" name='name' value="<?php echo htmlspecialchars($result['name'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input id="name" type="text" name='name' value="<?php echo htmlspecialchars($EditData['name'], ENT_QUOTES, 'UTF-8'); ?>">
 
     <div class="kana">フリガナ</div>
-    <input id="kana" type="text" name='kana' value="<?php echo htmlspecialchars($result['kana'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input id="kana" type="text" name='kana' value="<?php echo htmlspecialchars($EditData['kana'], ENT_QUOTES, 'UTF-8'); ?>">
 
     <div class="tel">電話番号</div>
-    <input id="tel" type="text" name='tel' value="<?php echo htmlspecialchars($result['tel'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input id="tel" type="text" name='tel' value="<?php echo htmlspecialchars($EditData['tel'], ENT_QUOTES, 'UTF-8'); ?>">
 
     <div class="mail">メールアドレス</div>
-    <input id="mail" type="text" name='email' value="<?php echo htmlspecialchars($result['email'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input id="mail" type="text" name='email' value="<?php echo htmlspecialchars($EditData['email'], ENT_QUOTES, 'UTF-8'); ?>">
 
     <div class="content">お問合せ内容</div>
-    <textarea id="content" name='body'><?php if (!empty($result['text'])) echo htmlspecialchars($result['text'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+    <textarea id="content" name='body'><?php if (!empty($EditData['text'])) echo htmlspecialchars($EditData['text'], ENT_QUOTES, 'UTF-8'); ?></textarea>
 
     <input id="submit" type="submit" name="btn_confirm" value="入力画面へ">
-    <input type="hidden" name="edit_id" value="<?=$result['id']?>">
+    <input type="hidden" name="edit_id" value="<?=$EditData['id']?>">
 
     </form>
   </body>
